@@ -15,8 +15,7 @@ while ISS_TLE[i] != '\n':
 
 TLE_LINE_1 = ISS_TLE[0:i-1]
 TLE_LINE_2 = ISS_TLE[i+1:]
-print(TLE_LINE_1)
-print(TLE_LINE_2);
+
 w3wQuery = 'transit.movement.biked';
 
 w3wData = w3w.forward(addr=w3wQuery)
