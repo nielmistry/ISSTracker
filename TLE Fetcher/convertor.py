@@ -1,7 +1,7 @@
 from spacetrack import SpaceTrackClient
 import what3words
 import ephem
-import sgp4.io
+import datetime
 
 
 # What3Words Setup
@@ -30,8 +30,14 @@ w3wData = w3w.forward(addr=w3wQuery)
 lat = w3wData['bounds']['southwest']['lat']
 lng = w3wData['bounds']['southwest']['lng']
 
-iss = ephem.readtle("ISS (ZARYA)",TLE_LINE_1, TLE_LINE_2)
-iss.compute("2018/04/20")
+observer = ephem.Observer()
+observer.lat, observer.long = lat, lng
+observer.date = datetime.datetime.now()
+observer.elevation = 170
 
-print(iss.sublong)
-print(iss.sublat)
+iss = ephem.readtle("ISS (ZARYA)", TLE_LINE_1, TLE_LINE_2)
+iss.compute(observer)
+
+
+# IDEA - A script running forever will update the TLE data when a timer >= some number
+# The rest of the script will just be sending alt/az data to the arduino over I2C or serial
