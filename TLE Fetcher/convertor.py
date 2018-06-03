@@ -17,7 +17,7 @@ i = 0
 while ISS_TLE[i] != '\n':
     i += 1
 
-TLE_LINE_1 = ISS_TLE[0:i-1]
+TLE_LINE_1 = ISS_TLE[0:i]
 TLE_LINE_2 = ISS_TLE[i+1:-1]
 
 print(TLE_LINE_1)
@@ -30,9 +30,8 @@ w3wData = w3w.forward(addr=w3wQuery)
 lat = w3wData['bounds']['southwest']['lat']
 lng = w3wData['bounds']['southwest']['lng']
 
-print(sgp4.io.verify_checksum(TLE_LINE_1))
-# iss = ephem.readtle("ISS (ZARYA)",TLE_LINE_1, TLE_LINE_2)
-# iss.compute("2018/04/20")
-#
-# print(iss.sublong)
-# print(iss.sublat)
+iss = ephem.readtle("ISS (ZARYA)",TLE_LINE_1, TLE_LINE_2)
+iss.compute("2018/04/20")
+
+print(iss.sublong)
+print(iss.sublat)
