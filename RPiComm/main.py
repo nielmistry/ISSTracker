@@ -2,14 +2,6 @@ import RPi.GPIO as GPIO
 import time
 import binascii
 
-GPIO.setmode(GPIO.BCM)
-
-GPIO.setup(4, GPIO.OUT)
-
-toSend = "Hello, world!"
-sendWord(toSend)
-
-
 def sendWord(word):
 	asciiDecode = int(binascii.hexlify(word))
 	for i in range(0,asciiDecode.bit_length):
@@ -29,3 +21,13 @@ def infBlink():
 		time.sleep(0.5)
 		GPIO.output(4,GPIO.LOW)
 		time.sleep(0.5)
+
+GPIO.setmode(GPIO.BCM)
+
+GPIO.setup(4, GPIO.OUT)
+
+toSend = "Hello, world!"
+sendWord(toSend)
+
+
+
