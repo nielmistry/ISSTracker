@@ -3,7 +3,7 @@ import time
 import binascii
 
 def sendWord(word):
-asciiDecode = int(binascii.hexlify(word), 16)
+	asciiDecode = int(binascii.hexlify(word), 16)
 	for i in range(0,asciiDecode.bit_length):
 		bit = asciiDecode & 0b01
 		asciiDecode = asciiDecode >> 1
