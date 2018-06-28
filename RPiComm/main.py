@@ -34,7 +34,6 @@ def infBlink():
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(OUTPUT_PIN, GPIO.OUT)
 GPIO.setup(CLK_PIN, GPIO.OUT)
-GPIO.setup()
 
 toSend = "Hello, world!"
 sendWord(toSend)
