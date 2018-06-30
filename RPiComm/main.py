@@ -4,7 +4,7 @@ import binascii
 
 OUTPUT_PIN = 17
 CLK_PIN = 4
-DELAY_TIME = 0.0005
+DELAY_TIME = 0.00005
 def sendWord(word):
 	for i in range(0, len(word)):
 		character = word[i]
