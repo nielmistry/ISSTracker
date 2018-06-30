@@ -2,14 +2,16 @@ from spacetrack import SpaceTrackClient
 import what3words
 import ephem
 import datetime
+import loadvars
+import os
 
 
 # What3Words Setup
-THREE_WORDS_API_KEY = "H60K6CTE"
+THREE_WORDS_API_KEY = os.environ["W3W_API_KEY"]
 w3w = what3words.Geocoder(THREE_WORDS_API_KEY)
 
 # SpaceTrack setup
-st = SpaceTrackClient('nielmistry1@gmail.com','oS4c0PiZncxHbo9')
+st = SpaceTrackClient('nielmistry1@gmail.com',os.environ["SPACETRACK_PW"])
 
 ISS_TLE = st.tle_latest(object_id='1998-067A', limit=1, format='tle')
 
