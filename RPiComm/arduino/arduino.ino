@@ -19,17 +19,17 @@ void loop() {
 
 void printChar()
 {
-  for(int i = 0; i < 8; i++)
+
+  byte character = 0;
+  for(int i = 7; i >= 0; i--)
   {
     if(byteArr[i])
     {
-      Serial.print("1");
-    }
-    else
-    {
-      Serial.print("0");
+      character |= (1 << (7-i));
     }
   }
+
+  Serial.print((char)character);
 }
 
 void setBitArr(){
@@ -38,8 +38,7 @@ void setBitArr(){
   if(curBit == 8)
   {
     curBit = 0;
-//    printChar();
-    Serial.print("\n");
+    printChar();
   }
  }
 
