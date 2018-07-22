@@ -20,6 +20,7 @@ def preamble():
 
 # Send a string in it's ASCII format over the data wire
 def sendWord(word):
+	preamble()
 	for i in range(0, len(word)):
 		character = word[i]
 		byte = int(binascii.hexlify(character),16)
