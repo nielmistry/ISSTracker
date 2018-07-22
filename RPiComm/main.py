@@ -9,7 +9,7 @@ def sendWord(word):
 	for i in range(0, len(word)):
 		character = word[i]
 		byte = int(binascii.hexlify(character),16)
-		for j in range(7, -1, -1):
+		for j in range(0, 8):
 			bit = byte & 2**7
 			bit >>= 7 
 			byte <<= 1
