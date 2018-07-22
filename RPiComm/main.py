@@ -6,6 +6,18 @@ OUTPUT_PIN = 17
 CLK_PIN = 4
 DELAY_TIME = 0.0005
 
+def cycleClock():
+	GPIO.output(CLK_PIN, GPIO.HIGH)
+	time.sleep(DELAY_TIME)
+	GPIO.output(CLK_PIN, GPIO.LOW)
+	time.sleep(DELAY_TIME)
+
+def preamble():
+	GPIO.output(OUTPUT_PIN, GPIO.HIGH)
+
+	for i in range(0, 100):
+		cycleClock()
+
 # Send a string in it's ASCII format over the data wire
 def sendWord(word):
 	for i in range(0, len(word)):
@@ -27,10 +39,7 @@ def sendWord(word):
 			else:
 				GPIO.output(OUTPUT_PIN, GPIO.LOW)
 			
-			GPIO.output(CLK_PIN, GPIO.HIGH)
-			time.sleep(DELAY_TIME)
-			GPIO.output(CLK_PIN, GPIO.LOW)
-			time.sleep(DELAY_TIME)
+			cycleClock()
 
 def infBlink():
 	while True:
