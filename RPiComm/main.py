@@ -41,5 +41,6 @@ GPIO.output(CLK_PIN,GPIO.LOW)
 toSend = "Hello, world!"
 sendWord(toSend)
 
-
+GPIO.output(OUTPUT_PIN, GPIO.LOW)
+GPIO.output(CLK_PIN, GPIO.LOW)
 
