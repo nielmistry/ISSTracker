@@ -15,7 +15,7 @@ def cycleClock():
 def preamble():
 	GPIO.output(OUTPUT_PIN, GPIO.HIGH)
 
-	for i in range(0, 100):
+	for i in range(0, 7):
 		cycleClock()
 
 # Send a string in it's ASCII format over the data wire
