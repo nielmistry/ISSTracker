@@ -2,3 +2,6 @@ TLE\ Fetcher/.idea
 TLE\ Fetcher/venv
 .idea
 TLE\ Fetcher/loadvars.py
+TLE\ Fetcher/stations.txt
+TLE\ Fetcher/deltat.*
+TLE\ Fetcher/Leap_Second.dat
